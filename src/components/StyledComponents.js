@@ -14,8 +14,8 @@ export const StyledTableHeaderCell = styled(TableCell)`
 `;
 
 export const StyledTableBodyCell = styled(TableCell)`
-  padding: 2px 5px 2px 5px;
-  font-size: 14px;
+  padding: 0px 5px 0px 5px;
+  font-size: 12px;
   font-weight: ${({ type }) => (type === "highlight" ? 400 : 600)};
   color: ${({ type, value }) => (type === "normal" ? "#000000" : value > 0 ? "#00AF00" : "#FF0000")};
   align: ${({ align }) => align};
