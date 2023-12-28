@@ -1,0 +1,277 @@
+[
+    {
+        "mm_id": 0,
+        "mm_cd": "GGJR",
+        "emp_id": 0,
+        "first_name": "NWMT",
+        "last_name": "",
+        "aggregates": {
+            "portfolio_sod_value": 6864379405,
+            "portfolio_sod_change_pct_ytd": 26.8831725212014
+        }
+    },
+    {
+        "mm_id": 3,
+        "mm_cd": "TV",
+        "emp_id": 3,
+        "first_name": "MPMNXF",
+        "last_name": "SNMYWUKO",
+        "aggregates": {
+            "portfolio_sod_value": 281232573,
+            "portfolio_sod_change_pct_ytd": -7.9117
+        }
+    },
+    {
+        "mm_id": 12,
+        "mm_cd": "KF",
+        "emp_id": 12,
+        "first_name": "JLCD",
+        "last_name": "BSFWQK",
+        "aggregates": {
+            "portfolio_sod_value": 524939968,
+            "portfolio_sod_change_pct_ytd": 21.5962
+        }
+    },
+    {
+        "mm_id": 30,
+        "mm_cd": "DW",
+        "emp_id": 30,
+        "first_name": "XCPKP",
+        "last_name": "JRMNLQ",
+        "aggregates": {
+            "portfolio_sod_value": 51042914,
+            "portfolio_sod_change_pct_ytd": 17.1322
+        }
+    },
+    {
+        "mm_id": 31,
+        "mm_cd": "XY",
+        "emp_id": 31,
+        "first_name": "JMTBI",
+        "last_name": "KXFN",
+        "aggregates": {
+            "portfolio_sod_value": 1378857579,
+            "portfolio_sod_change_pct_ytd": 38.4039
+        }
+    },
+    {
+        "mm_id": 42,
+        "mm_cd": "UN",
+        "emp_id": 42,
+        "first_name": "GEUFXGP",
+        "last_name": "NFNTRHUKW",
+        "aggregates": {
+            "portfolio_sod_value": 483231837,
+            "portfolio_sod_change_pct_ytd": -11.8997
+        }
+    },
+    {
+        "mm_id": 61,
+        "mm_cd": "CL",
+        "emp_id": 61,
+        "first_name": "MIYFM",
+        "last_name": "MDPQKVDW",
+        "aggregates": {
+            "portfolio_sod_value": 243514626,
+            "portfolio_sod_change_pct_ytd": 20.8566
+        }
+    },
+    {
+        "mm_id": 71,
+        "mm_cd": "EF",
+        "emp_id": 50,
+        "first_name": "BWOCYB",
+        "last_name": "QQPILR",
+        "aggregates": {
+            "portfolio_sod_value": 1298516070,
+            "portfolio_sod_change_pct_ytd": 42.4211
+        }
+    },
+    {
+        "mm_id": 74,
+        "mm_cd": "DK",
+        "emp_id": 80,
+        "first_name": "ZTUKP",
+        "last_name": "IZKVY",
+        "aggregates": {
+            "portfolio_sod_value": 184184181,
+            "portfolio_sod_change_pct_ytd": 16.3161
+        }
+    },
+    {
+        "mm_id": 85,
+        "mm_cd": "SW",
+        "emp_id": 86,
+        "first_name": "DDMKKN",
+        "last_name": "HUFF",
+        "aggregates": {
+            "portfolio_sod_value": 28932894,
+            "portfolio_sod_change_pct_ytd": 31.086
+        }
+    },
+    {
+        "mm_id": 89,
+        "mm_cd": "WJ",
+        "emp_id": 73,
+        "first_name": "BMVUQ",
+        "last_name": "FNJCVNL",
+        "aggregates": {
+            "portfolio_sod_value": 1314197386,
+            "portfolio_sod_change_pct_ytd": 37.2148
+        }
+    },
+    {
+        "mm_id": 92,
+        "mm_cd": "FV",
+        "emp_id": 124,
+        "first_name": "UQW",
+        "last_name": "ZHIFWXI",
+        "aggregates": {
+            "portfolio_sod_value": 449016370,
+            "portfolio_sod_change_pct_ytd": 29.3086
+        }
+    },
+    {
+        "mm_id": 93,
+        "mm_cd": "RO",
+        "emp_id": 146,
+        "first_name": "LZLTD",
+        "last_name": "RQLJ",
+        "aggregates": {
+            "portfolio_sod_value": 95642011,
+            "portfolio_sod_change_pct_ytd": 22.5354
+        }
+    },
+    {
+        "mm_id": 98,
+        "mm_cd": "GL",
+        "emp_id": 152,
+        "first_name": "MBYDLTVC",
+        "last_name": "ZCOOTOMRYBN",
+        "aggregates": {
+            "portfolio_sod_value": 70164326,
+            "portfolio_sod_change_pct_ytd": 8.3515
+        }
+    },
+    {
+        "mm_id": 103,
+        "mm_cd": "WG",
+        "emp_id": 174,
+        "first_name": "DLSBX",
+        "last_name": "ENCIMCH",
+        "aggregates": {
+            "portfolio_sod_value": 231301646,
+            "portfolio_sod_change_pct_ytd": 40.3812
+        }
+    },
+    {
+        "mm_id": 110,
+        "mm_cd": "WC",
+        "emp_id": 159,
+        "first_name": "RMP",
+        "last_name": "ZBXFPYQN",
+        "aggregates": {
+            "portfolio_sod_value": 15446560,
+            "portfolio_sod_change_pct_ytd": -6.1238
+        }
+    },
+    {
+        "mm_id": 114,
+        "mm_cd": "WPO",
+        "emp_id": 210,
+        "first_name": "ZWDJQ",
+        "last_name": "BOQYPO",
+        "aggregates": {
+            "portfolio_sod_value": 49916876,
+            "portfolio_sod_change_pct_ytd": -2.8571
+        }
+    },
+    {
+        "mm_id": 116,
+        "mm_cd": "KVL",
+        "emp_id": 154,
+        "first_name": "HQZH",
+        "last_name": "CJIZFC",
+        "aggregates": {
+            "portfolio_sod_value": 75904316,
+            "portfolio_sod_change_pct_ytd": 18.4895
+        }
+    },
+    {
+        "mm_id": 117,
+        "mm_cd": "LQ",
+        "emp_id": 223,
+        "first_name": "BMVUQ",
+        "last_name": "YQBRU",
+        "aggregates": {
+            "portfolio_sod_value": 9227021,
+            "portfolio_sod_change_pct_ytd": 56.8013
+        }
+    },
+    {
+        "mm_id": 119,
+        "mm_cd": "EO",
+        "emp_id": 244,
+        "first_name": "GEUFXGP",
+        "last_name": "HTLRTLRMHQ",
+        "aggregates": {
+            "portfolio_sod_value": 53743212,
+            "portfolio_sod_change_pct_ytd": 45.0202
+        }
+    },
+    {
+        "mm_id": 122,
+        "mm_cd": "NY",
+        "emp_id": 225,
+        "first_name": "NGPB",
+        "last_name": "DNUJ",
+        "aggregates": {
+            "portfolio_sod_value": 5334304,
+            "portfolio_sod_change_pct_ytd": 29.0294
+        }
+    },
+    {
+        "mm_id": 127,
+        "mm_cd": "RUX",
+        "emp_id": 276,
+        "first_name": "PVJI",
+        "last_name": "IYGZQAR",
+        "aggregates": {
+            "portfolio_sod_value": 1493176,
+            "portfolio_sod_change_pct_ytd": 17.4979
+        }
+    },
+    {
+        "mm_id": 128,
+        "mm_cd": "ZL",
+        "emp_id": 337,
+        "first_name": "VRVR",
+        "last_name": "JXUUPRRO",
+        "aggregates": {
+            "portfolio_sod_value": 3688246,
+            "portfolio_sod_change_pct_ytd": 62.5047
+        }
+    },
+    {
+        "mm_id": 130,
+        "mm_cd": "AI",
+        "emp_id": 319,
+        "first_name": "THZCPO",
+        "last_name": "EPCXX",
+        "aggregates": {
+            "portfolio_sod_value": 325373,
+            "portfolio_sod_change_pct_ytd": 15.5907
+        }
+    },
+    {
+        "mm_id": 131,
+        "mm_cd": "XA",
+        "emp_id": 438,
+        "first_name": "UFUBQCR",
+        "last_name": "LUNJ",
+        "aggregates": {
+            "portfolio_sod_value": 14525940,
+            "portfolio_sod_change_pct_ytd": 40.6708
+        }
+    }
+]
