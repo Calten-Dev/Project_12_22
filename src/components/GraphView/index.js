@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 
 function GraphView() {
   const [data, setData] = useState([]);
+  const [timeData, setTimeData] = useState([]);
+  const [valueData, setValueData] = useState([])
   const getData = async () => {
     try {
       const response = await fetch("graph_cleaned.json", {
@@ -20,7 +22,6 @@ function GraphView() {
       console.error("Error fetching data:", error);
     }
   };
-
   useEffect(() => {
     getData();
   }, []);
@@ -35,7 +36,7 @@ function GraphView() {
         boxSizing: "border-box",
         overflowX: "hidden",
         maxHeight: "300px",
-        minHeight: "200px"
+        minHeight: "200px",
       }}
     >
       <Box component={"img"} src="graph.png" alt="Graph View" sx={{ maxWidth: "100%", maxHeight: "100%" }} />

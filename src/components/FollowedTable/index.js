@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Table, TableHead, TableBody, Paper } from "@mui/material";
 import { StyledTableRow, StyledTableHeaderCell, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableContainer } from "./StyledComponents";
-import { formatNumber } from "../../utils";
+import { formatNumber, getSortedData } from "../../utils";
+import { financeApis } from "../../apis";
 
 const headers = ["", "Change", "%", "YTD%", "Value"];
+const headerSortField = ["description", "change", "change_pct", "change_pct_ytd", "value"];
 
 function FollowedTable() {
   const [data, setData] = useState([]);
-  const getData = async () => {
-    try {
-      const response = await fetch("followed_clean.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const [sortField, setSortField] = useState({fieldName: "", ascStatus: true});
 
   useEffect(() => {
-    getData();
+    financeApis.getFollowedData().then(setData);
   }, []);
+
+  const sortedData = useMemo(() => {
+    return getSortedData(data, sortField);
+  }, [sortField, data]);
+
+  const onHeaderClick = (data) => () => {
+    if(data === sortField.fieldName){
+      setSortField({fieldName: data, ascStatus: !sortField.ascStatus});
+    }
+    else{
+      setSortField({fieldName: data, ascStatus: true})
+    }
+  };
 
   return (
     <StyledTableContainer component={Paper}>
@@ -36,16 +35,20 @@ function FollowedTable() {
         <TableHead>
           <StyledTableRow header={"true"}>
             {headers.map((header, index) => (
-              <StyledTableHeaderCell key={index} align={index > 0 ? "right" : "inherit"}>
+              <StyledTableHeaderCell
+                key={index}
+                align={index > 0 ? "right" : "inherit"}
+                onClick={onHeaderClick(headerSortField[index])}
+              >
                 {header}
               </StyledTableHeaderCell>
             ))}
           </StyledTableRow>
         </TableHead>
         <TableBody>
-          {data &&
-            data.length > 0 &&
-            data
+          {sortedData &&
+            sortedData.length > 0 &&
+            sortedData
               .filter((item) => !item.sec_id)
               .map((item, index) => (
                 <StyledTableRow index={index} key={index}>

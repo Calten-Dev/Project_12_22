@@ -1,4 +1,4 @@
-function formatNumber(input) {
+export function formatNumber(input) {
   const num = parseFloat(input);
   if (Math.abs(num) >= 1000000) {
     return (num / 1000000).toFixed(2) + "m";
@@ -8,5 +8,3 @@ function formatNumber(input) {
     return num.toFixed(2);
   }
 }
-
-export default formatNumber;
