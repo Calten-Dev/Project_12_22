@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
+import { financeApis } from "../../apis";
 
 function GraphView() {
   const [data, setData] = useState([]);
-  const [timeData, setTimeData] = useState([]);
-  const [valueData, setValueData] = useState([])
-  const getData = async () => {
-    try {
-      const response = await fetch("graph_cleaned.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
   useEffect(() => {
-    getData();
+    financeApis.getGraphData().then(setData)
   }, []);
   return (
     <Box
