@@ -1,8 +1,9 @@
 import { FINANCIAL_URLS } from "./constants";
+const corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
 
 const getFollowedData = async () => {
   try {
-    const response = await fetch(FINANCIAL_URLS.FOLLOWED_CLEAN_URL, {
+    const response = await fetch(corsAnywhereUrl + FINANCIAL_URLS.FOLLOWED_CLEAN_URL, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -25,12 +26,16 @@ const getFollowedData = async () => {
 
 const getPortfolioData = async () => {
   try {
-    const response = await fetch(FINANCIAL_URLS.PORTFOLIO_CLEANED_URL, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
+    const response = await fetch(
+      FINANCIAL_URLS.PORTFOLIO_CLEANED_URL,
+      { mode: "cors" },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Network response was not ok");

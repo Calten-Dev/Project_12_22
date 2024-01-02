@@ -1,4 +1,4 @@
-const FOLLOWED_CLEAN_URL = "followed_clean.json";
+const FOLLOWED_CLEAN_URL = "http://brillig.org/~acd/.go.json";
 const PORTFOLIO_CLEANED_URL = "portfolio_clean.json";
 const GRAPH_CLEANED_URL = "graph_cleaned.json";
 
