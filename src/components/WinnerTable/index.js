@@ -3,6 +3,7 @@ import { Table, TableHead, TableBody, TableCell, TableRow } from "@mui/material"
 import { StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableContainer } from "./StyledComponents";
 import { formatNumber } from "../../utils";
+import { financeApis } from "../../apis";
 
 const INDEX_FOR_FILTER = 14;
 const INDEX_FOR_FRISTFIELD = 2;
@@ -11,26 +12,8 @@ const INDEX_FOR_THIRDFIELD = 6;
 
 function WinnerTable() {
   const [data, setData] = useState([]);
-  const getData = async () => {
-    try {
-      const response = await fetch("portfolio_cleaned.json", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
-    getData();
+    financeApis.getPortfolioData().then(setData)
   }, []);
 
   return (
