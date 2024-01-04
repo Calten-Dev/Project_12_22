@@ -3,29 +3,33 @@ import { TableContainer, Table, TableHead, TableBody } from "@mui/material";
 import { StyledTableRow, StyledTableHeaderCell, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableNameCell } from "./StyledComponent";
 import { formatNumber, getSortedData } from "../../utils";
-import { financeApis } from "../../apis";
 
 const headers = ["Graphed", "Change", "%", "YTD%", "Value"];
 const headerSortField = ["description", "change", "change_pct", "change_pct_ytd", "value"];
 
-function GraphedTable() {
-  const [data, setData] = useState([]);
+function GraphedTable({followedData}) {
+  const [data, setData] = useState(followedData);
   const [sortField, setSortField] = useState({ fieldName: "", ascStatus: true });
+
   useEffect(() => {
-    financeApis.getFollowedData().then(setData);
-  }, []);
+    setData(followedData)
+  }, [followedData]);
 
   const sortedData = useMemo(() => {
     return getSortedData(data, sortField);
   }, [sortField, data]);
 
-  const onHeaderClick = (data) => () => {
-    if (data === sortField.fieldName) {
-      setSortField({ fieldName: data, ascStatus: !sortField.ascStatus });
+  const onHeaderClick = (fieldName) => () => {
+    if (fieldName === sortField.fieldName) {
+      setSortField((prevSortField) => ({
+        fieldName,
+        ascStatus: !prevSortField.ascStatus,
+      }));
     } else {
-      setSortField({ fieldName: data, ascStatus: true });
+      setSortField({ fieldName, ascStatus: true });
     }
   };
+
 
   return (
     <TableContainer

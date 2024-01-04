@@ -3,29 +3,30 @@ import { Table, TableHead, TableBody, Paper } from "@mui/material";
 import { StyledTableRow, StyledTableHeaderCell, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableContainer } from "./StyledComponents";
 import { formatNumber, getSortedData } from "../../utils";
-import { financeApis } from "../../apis";
 
 const headers = ["", "Change", "%", "YTD%", "Value"];
 const headerSortField = ["description", "change", "change_pct", "change_pct_ytd", "value"];
 
-function FollowedTable() {
-  const [data, setData] = useState([]);
-  const [sortField, setSortField] = useState({fieldName: "", ascStatus: true});
+function FollowedTable({ followedData }) {
+  const [data, setData] = useState(followedData);
+  const [sortField, setSortField] = useState({ fieldName: "", ascStatus: true });
 
   useEffect(() => {
-    financeApis.getFollowedData().then(setData);
-  }, []);
+    setData(followedData);
+  }, [followedData]);
 
   const sortedData = useMemo(() => {
     return getSortedData(data, sortField);
   }, [sortField, data]);
 
-  const onHeaderClick = (data) => () => {
-    if(data === sortField.fieldName){
-      setSortField({fieldName: data, ascStatus: !sortField.ascStatus});
-    }
-    else{
-      setSortField({fieldName: data, ascStatus: true})
+  const onHeaderClick = (fieldName) => () => {
+    if (fieldName === sortField.fieldName) {
+      setSortField((prevSortField) => ({
+        fieldName,
+        ascStatus: !prevSortField.ascStatus,
+      }));
+    } else {
+      setSortField({ fieldName, ascStatus: true });
     }
   };
 

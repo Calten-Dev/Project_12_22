@@ -14,7 +14,6 @@ export const getSortedData = (data, sortField) => {
         ? parseFloat(fieldOfA) - parseFloat(fieldOfB)
         : parseFloat(fieldOfB) - parseFloat(fieldOfA);
     }
-    // return fieldOfA < fieldOfB ? -1 : 1;
     return sortField.ascStatus ? (fieldOfA > fieldOfB ? -1 : 1) : fieldOfA < fieldOfB ? -1 : 1;
   });
 

@@ -3,18 +3,18 @@ import { Table, TableHead, TableBody, TableCell, TableRow } from "@mui/material"
 import { StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableContainer } from "./StyledComponents";
 import { formatNumber } from "../../utils";
-import { financeApis } from "../../apis";
 
 const INDEX_FOR_FILTER = 14;
 const INDEX_FOR_FRISTFIELD = 2;
 const INDEX_FOR_SECONDFIELD = 9
 const INDEX_FOR_THIRDFIELD = 6;
 
-function WinnerTable() {
+function WinnerTable({portfolioData}) {
   const [data, setData] = useState([]);
+  
   useEffect(() => {
-    financeApis.getPortfolioData().then(setData)
-  }, []);
+    setData(portfolioData)
+  }, [portfolioData]);
 
   return (
     <StyledTableContainer>
