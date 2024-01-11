@@ -1,9 +1,8 @@
 import { FINANCIAL_URLS } from "./constants";
-const corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
 
 const getFollowedData = async () => {
   try {
-    const response = await fetch(corsAnywhereUrl + FINANCIAL_URLS.FOLLOWED_CLEAN_URL, {
+    const response = await fetch(FINANCIAL_URLS.FOLLOWED_CLEAN_URL, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
