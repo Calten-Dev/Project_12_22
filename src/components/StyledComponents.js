@@ -9,7 +9,7 @@ export const StyledTableHeaderCell = styled(TableCell)`
   padding: 2px 5px 2px 5px;
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
+  color: ${({color}) => (!!color ? color : "#ffffff")};
   border: 1px solid #ffffff;
 `;
 

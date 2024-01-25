@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Select, MenuItem } from "@mui/material";
+import { useNavigate } from "react-router";
 import HeaderButtons from "./HeaderButtons";
 import TickerSelect from "./TickerSelect";
 import { StyledHeaderButton } from "./HeaderButtons/StyledComponents";
@@ -8,6 +9,16 @@ import { customizedTheme } from "../CustomizedTheme";
 const exampleGoto = ["Go To...", "1", "2", "3"];
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleTickerChange = (value) => {
+    navigate(`/${value}`);
+  };
+
+  const handleClickButton = (value) => {
+    navigate(`/${value}`);
+
+  };
   return (
     <Box
       sx={{
@@ -32,7 +43,7 @@ function Header() {
         },
       }}
     >
-      <HeaderButtons />
+      <HeaderButtons handleClickButton={handleClickButton} />
       <Select
         sx={{
           backgroundColor: "#FFFFFF",
@@ -54,7 +65,7 @@ function Header() {
             </MenuItem>
           ))}
       </Select>
-      <TickerSelect />
+      <TickerSelect handleTickerChange={handleTickerChange} />
       <StyledHeaderButton sx={{ [customizedTheme.breakpoints.down("md")]: { display: "none" } }}>Go</StyledHeaderButton>
     </Box>
   );

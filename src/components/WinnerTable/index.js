@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Table, TableHead, TableBody, TableCell, TableRow } from "@mui/material";
 import { StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
 import { StyledTableContainer } from "./StyledComponents";
@@ -6,15 +7,20 @@ import { formatNumber } from "../../utils";
 
 const INDEX_FOR_FILTER = 14;
 const INDEX_FOR_FRISTFIELD = 2;
-const INDEX_FOR_SECONDFIELD = 9
+const INDEX_FOR_SECONDFIELD = 9;
 const INDEX_FOR_THIRDFIELD = 6;
 
-function WinnerTable({portfolioData}) {
+function WinnerTable({ portfolioData }) {
   const [data, setData] = useState([]);
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
-    setData(portfolioData)
+    setData(portfolioData);
   }, [portfolioData]);
+
+  const handleClick = (data) => {
+    navigate(`/${data}`);
+  };
 
   return (
     <StyledTableContainer>
@@ -42,7 +48,7 @@ function WinnerTable({portfolioData}) {
               .filter((item) => item[INDEX_FOR_FILTER] > 0)
               .sort((a, b) => b[INDEX_FOR_FILTER] - a[INDEX_FOR_FILTER])
               .map((item, index) => (
-                <StyledTableRow key={index} index={index}>
+                <StyledTableRow key={index} index={index} onClick={() => handleClick(item[INDEX_FOR_FRISTFIELD])}>
                   <StyledTableBodyCell type={"normal"} value={item[INDEX_FOR_FRISTFIELD]}>
                     {item[INDEX_FOR_FRISTFIELD]}
                   </StyledTableBodyCell>

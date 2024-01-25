@@ -3,7 +3,14 @@ import { Box } from "@mui/material";
 import { StyledHeaderButton } from "./StyledComponents";
 import { customizedTheme } from "../../CustomizedTheme";
 
-function HeaderButtons() {
+function HeaderButtons({ handleClickButton }) {
+  const buttonLabels = ["Summaries", "Positions", "Trades", "Orders"];
+  const navigateUrls = ["", "positions", "trades", "orders"];
+
+  const handleClick = (value) => {
+    handleClickButton(value);
+  };
+
   return (
     <Box
       sx={{
@@ -17,10 +24,11 @@ function HeaderButtons() {
         },
       }}
     >
-      <StyledHeaderButton>Summaries</StyledHeaderButton>
-      <StyledHeaderButton>Positions</StyledHeaderButton>
-      <StyledHeaderButton>Trades</StyledHeaderButton>
-      <StyledHeaderButton>Orders</StyledHeaderButton>
+      {buttonLabels.map((item, index) => (
+        <StyledHeaderButton key={index} onClick={() => handleClick(navigateUrls[index])}>
+          {item}
+        </StyledHeaderButton>
+      ))}
     </Box>
   );
 }

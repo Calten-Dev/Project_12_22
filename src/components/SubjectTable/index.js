@@ -87,21 +87,6 @@ const exampleData = [
     subject: "First subject",
     recieved: "12/21/2023",
   },
-  {
-    from: "First",
-    subject: "First subject",
-    recieved: "12/21/2023",
-  },
-  {
-    from: "First",
-    subject: "First subject",
-    recieved: "12/21/2023",
-  },
-  {
-    from: "First",
-    subject: "First subject",
-    recieved: "12/21/2023",
-  },
 ];
 
 function SubjectTable() {

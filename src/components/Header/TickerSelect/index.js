@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Select, MenuItem, OutlinedInput } from "@mui/material";
 import { customizedTheme } from "../../CustomizedTheme";
 
 const exampleSelectorData = ["Alex Derbes", "1", "2", "3"];
 
-function TickerSelect() {
+function TickerSelect({ handleTickerChange }) {
+  const [ticker, setTicker] = useState("");
+  useEffect(() => {
+    setTicker("");
+  }, []);
+
+  const handleEnterPress = (event) => {
+    if (event.key === "Enter") {
+      handleTickerChange(ticker);
+      setTicker("");
+    }
+  };
+
+  const handleInputChange = (event) => {
+    setTicker(event.target.value);
+  };
+
   return (
     <Box
       sx={{
@@ -63,7 +79,10 @@ function TickerSelect() {
             width: "70px",
           },
         }}
-      ></OutlinedInput>
+        onChange={handleInputChange}
+        onKeyUp={handleEnterPress}
+        value={ticker}
+      />
     </Box>
   );
 }
