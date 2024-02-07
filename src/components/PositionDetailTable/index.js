@@ -92,7 +92,7 @@ function PositionDetailTable({ managerData, mmData }) {
                   key={index}
                   color={"#000000"}
                   bgcolor={"#A1B5C5"}
-                  align={index == 0 ? "left" : "right"}
+                  align={index === 0 ? "left" : "right"}
                 >
                   {item}
                 </StyledTableHeaderCell>
