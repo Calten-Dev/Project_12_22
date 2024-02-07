@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "@mui/material";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
-import {
-  StyledTableHead,
-  StyledTableBodyCell,
-  StyledTableHeaderCell,
-  StyledTableRow,
-} from "../StyledComponents";
+import { StyledTableHead, StyledTableBodyCell, StyledTableHeaderCell, StyledTableRow } from "../StyledComponents";
 import { StyledContainer } from "./StyledComponents";
 import { formatNumber } from "../../utils";
 
@@ -52,7 +47,7 @@ function PositionDetailEarningTable({ managerData }) {
           </StyledTableHead>
           <StyledTableHead>
             {tableHeaderLabels.map((item, index) => (
-              <StyledTableHeaderCell bgcolor={"#A1B5C5"} key={index}>
+              <StyledTableHeaderCell bgcolor={"#A1B5C5"} key={index} align={index === 0 ? "left" : "right"}>
                 {item}
               </StyledTableHeaderCell>
             ))}

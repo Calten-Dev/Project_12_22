@@ -49,7 +49,7 @@ function PositionDetailHistoryTable({ managerData, mmData }) {
           </StyledTableHead>
           <StyledTableHead>
             {tableHeaderLabels.map((item, index) => (
-              <StyledTableHeaderCell bgcolor={"#A1B5C5"} key={index}>
+              <StyledTableHeaderCell bgcolor={"#A1B5C5"} key={index} align={index === 0 ? "left" : "right"}>
                 {item}
               </StyledTableHeaderCell>
             ))}
