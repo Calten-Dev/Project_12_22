@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Table, TableHead, TableBody, TableCell, TableRow } from "@mui/material";
-import { StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
-import { StyledTableContainer } from "./StyledComponents";
+import { StyledTableRow, StyledTableBodyCell, StyledTableContainer } from "../StyledComponents";
 import { formatNumber } from "../../utils";
 
 const INDEX_FOR_FILTER = 14;
@@ -10,7 +9,7 @@ const INDEX_FOR_FRISTFIELD = 2;
 const INDEX_FOR_SECONDFIELD = 9;
 const INDEX_FOR_THIRDFIELD = 6;
 
-function LoserTable({ portfolioData }) {
+ function LoserTable({ portfolioData }) {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 

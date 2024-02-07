@@ -1,11 +1,11 @@
-import { styled, TableContainer } from "@mui/material";
+import { TableContainer, styled } from "@mui/material";
 
-export const StyledTableContainer = styled(TableContainer)`
-  margin-bottom: 1px;
+export const StyledContainer = styled("div")`
+  margin: 1px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: block;
-    width: 4px;
+    height: 4px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #aaaaaa;
@@ -15,7 +15,8 @@ export const StyledTableContainer = styled(TableContainer)`
   &::-webkit-scrollbar-track {
     background-color: #f1f1f1;
   }
-  @media only screen and (min-width: 700px) {
-    max-height: 40vh;
+  @media only screen and (min-width: 900px) {
+    min-width: 50%;
+    margin: 0px 0px 1px 1px;
   }
 `;

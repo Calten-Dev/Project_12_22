@@ -1,15 +1,21 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import { Table, TableHead, TableBody, Paper } from "@mui/material";
 import { StyledTableRow, StyledTableHeaderCell, StyledTableBodyCell } from "../StyledComponents";
-import { StyledTableContainer } from "./StyledComponents";
+import { StyledTableContainer } from "../StyledComponents";
 import { formatNumber, getSortedData } from "../../utils";
 
 const headers = ["", "Change", "%", "YTD%", "Value"];
 const headerSortField = ["description", "change", "change_pct", "change_pct_ytd", "value"];
 
-function FollowedTable({ followedData }) {
+function FollowedTable({ followedData, handleManagerClickOnFollowedTable }) {
   const [data, setData] = useState(followedData);
-  const [sortField, setSortField] = useState({ fieldName: "", ascStatus: true });
+  const [sortField, setSortField] = useState({
+    fieldName: "",
+    ascStatus: true,
+  });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setData(followedData);
@@ -26,12 +32,20 @@ function FollowedTable({ followedData }) {
         ascStatus: !prevSortField.ascStatus,
       }));
     } else {
-      setSortField({ fieldName, ascStatus: true });
+      setSortField({
+        fieldName,
+        ascStatus: true,
+      });
     }
   };
 
+  const handleClickRow = (value) => {
+    handleManagerClickOnFollowedTable(value);
+    navigate(`/positions/${value}`);
+  };
+
   return (
-    <StyledTableContainer component={Paper}>
+    <StyledTableContainer component={Paper} maxHeight="40vh">
       <Table stickyHeader>
         <TableHead>
           <StyledTableRow header={"true"}>
@@ -52,7 +66,7 @@ function FollowedTable({ followedData }) {
             sortedData
               .filter((item) => !item.sec_id)
               .map((item, index) => (
-                <StyledTableRow index={index} key={index}>
+                <StyledTableRow index={index} key={index} onClick={() => handleClickRow(item.mm_id)}>
                   <StyledTableBodyCell className="followed-table-cell-body" type={"normal"}>
                     {item.description}
                   </StyledTableBodyCell>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Select, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router";
 import HeaderButtons from "./HeaderButtons";
@@ -8,17 +8,26 @@ import { customizedTheme } from "../CustomizedTheme";
 
 const exampleGoto = ["Go To...", "1", "2", "3"];
 
-function Header() {
+function Header({ managerList, managerId }) {
+  const [selectedManagerId, setSelectedManagerId] = useState();
+
+  useEffect(() => {
+    !!managerId
+      ? setSelectedManagerId(managerId)
+      : managerList.length !== 0
+      ? setSelectedManagerId(managerList[0].mm_id)
+      : setSelectedManagerId();
+  }, [managerList, managerId]);
   const navigate = useNavigate();
 
   const handleTickerChange = (value) => {
     navigate(`/${value}`);
   };
 
-  const handleClickButton = (value) => {
-    navigate(`/${value}`);
-
+  const handleManagerChange = (value) => {
+    setSelectedManagerId(value);
   };
+
   return (
     <Box
       sx={{
@@ -43,7 +52,7 @@ function Header() {
         },
       }}
     >
-      <HeaderButtons handleClickButton={handleClickButton} />
+      <HeaderButtons selectedManagerId={selectedManagerId} />
       <Select
         sx={{
           backgroundColor: "#FFFFFF",
@@ -65,7 +74,12 @@ function Header() {
             </MenuItem>
           ))}
       </Select>
-      <TickerSelect handleTickerChange={handleTickerChange} />
+      <TickerSelect
+        handleTickerChange={handleTickerChange}
+        managerList={managerList}
+        selectedManagerId = {selectedManagerId}
+        handleManagerChange={handleManagerChange}
+      />
       <StyledHeaderButton sx={{ [customizedTheme.breakpoints.down("md")]: { display: "none" } }}>Go</StyledHeaderButton>
     </Box>
   );

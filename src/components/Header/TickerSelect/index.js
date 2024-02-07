@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Box, Select, MenuItem, OutlinedInput } from "@mui/material";
 import { customizedTheme } from "../../CustomizedTheme";
 
-const exampleSelectorData = ["Alex Derbes", "1", "2", "3"];
-
-function TickerSelect({ handleTickerChange }) {
+function TickerSelect({ handleTickerChange, managerList, selectedManagerId, handleManagerChange }) {
+  const [managerCd, setManagerCd] = useState("");
   const [ticker, setTicker] = useState("");
   useEffect(() => {
     setTicker("");
-  }, []);
+    !!selectedManagerId
+      ? setManagerCd(selectedManagerId)
+      : !!managerList && managerList.length > 0
+      ? setManagerCd(managerList[0].mm_id)
+      : setManagerCd("");
+  }, [managerList, selectedManagerId]);
 
   const handleEnterPress = (event) => {
     if (event.key === "Enter") {
       handleTickerChange(ticker);
       setTicker("");
     }
+  };
+
+  const handleSelectChange = (event) => {
+    setManagerCd(event.target.value);
+    handleManagerChange(event.target.value);
   };
 
   const handleInputChange = (event) => {
@@ -47,12 +56,14 @@ function TickerSelect({ handleTickerChange }) {
           },
         }}
         defaultValue={0}
+        value={managerCd}
+        onChange={handleSelectChange}
       >
-        {exampleSelectorData &&
-          exampleSelectorData.length > 0 &&
-          exampleSelectorData.map((item, index) => (
-            <MenuItem key={index} value={index}>
-              {item}
+        {managerList &&
+          managerList.length > 0 &&
+          managerList.map((item, index) => (
+            <MenuItem key={index} value={item.mm_id} sx={{ ":hover": { background: "#E0E0E0" } }}>
+              {item.first_name} {item.last_name}
             </MenuItem>
           ))}
       </Select>

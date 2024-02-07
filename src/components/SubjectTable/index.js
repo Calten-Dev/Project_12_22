@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box, Table, TableBody, TableHead, TableRow, Tabs, Tab } from "@mui/material";
 import { SubjectTableHeader } from "./StyledComponents";
-import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
+import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell, StyledTableContainer } from "../StyledComponents";
 import { FcKey } from "react-icons/fc";
 import { customizedTheme } from "../CustomizedTheme";
-import { StyledSubjectTableContainer } from "./StyledComponents";
 
 const exampleData = [
   {
@@ -131,7 +130,7 @@ function SubjectTable() {
           />
         </Tabs>
       </SubjectTableHeader>
-      <StyledSubjectTableContainer value={tabValue}>
+      <StyledTableContainer value={tabValue}>
         <Table stickyHeader>
           <TableHead>
             <TableRow>
@@ -186,7 +185,7 @@ function SubjectTable() {
               ))}
           </TableBody>
         </Table>
-      </StyledSubjectTableContainer>
+      </StyledTableContainer>
     </Box>
   );
 }

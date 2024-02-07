@@ -93,9 +93,78 @@ const getIndividualPortfolioData = async (ticker) => {
   }
 };
 
+const getManagerList = async () => {
+  try {
+    const response = await fetch(FINANCIAL_URLS.MANAGERLIST_CLEANED_URL, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    return [];
+  }
+};
+
+const getPositionDetailData = async (managerId) => {
+  try {
+    const response = await fetch(`${FINANCIAL_URLS.PORTFOLIO_CLEANED_URL}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const responseData = await response.json();
+    const data = responseData.filter((item) => item[0] == managerId);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
+
+const getMMDetailData = async (mmid) => {
+  try {
+    const response = await fetch(`${FINANCIAL_URLS.MANAGERLIST_CLEANED_URL}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const responseData = await response.json();
+    const data = responseData.find((item) => item.mm_id == mmid);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
+
 export const financeApis = {
   getFollowedData,
   getPortfolioData,
   getGraphData,
-  getIndividualPortfolioData
+  getIndividualPortfolioData,
+  getManagerList,
+  getPositionDetailData,
+  getMMDetailData,
 };

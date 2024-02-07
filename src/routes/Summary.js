@@ -9,7 +9,7 @@ import SubjectTable from "../components/SubjectTable";
 import { useMediaQuery } from "@mui/material";
 import { financeApis } from "../apis";
 
-function Summary() {
+function Summary({ handleManagerClickOnFollowedTable }) {
   const mobileMatches = useMediaQuery("(min-width:700px)");
 
   const [followedData, setFollowedData] = useState([]);
@@ -39,7 +39,10 @@ function Summary() {
             <Box sx={{ width: "350px", height: 1, display: "flex", flexDirection: "column", paddingLeft: "2px" }}>
               <Box sx={{ display: "flex", flexDirection: "column", overflow: "auto" }}>
                 <GraphedTable followedData={followedData} />
-                <FollowedTable followedData={followedData} />
+                <FollowedTable
+                  followedData={followedData}
+                  handleManagerClickOnFollowedTable={handleManagerClickOnFollowedTable}
+                />
               </Box>
               <Box sx={{ flex: 1, display: "flex", flexDirection: "column", overflow: "auto", paddingBottom: "4px" }}>
                 <WinnerTable portfolioData={portfolioData} />
@@ -64,7 +67,10 @@ function Summary() {
         <>
           <Box>
             <GraphedTable followedData={followedData} />
-            <FollowedTable followedData={followedData} />
+            <FollowedTable
+              followedData={followedData}
+              handleManagerClickOnFollowedTable={handleManagerClickOnFollowedTable}
+            />
             <GraphView />
             <WinnerTable portfolioData={portfolioData} />
             <LoserTable portfolioData={portfolioData} />

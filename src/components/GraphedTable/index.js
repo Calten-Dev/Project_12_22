@@ -7,12 +7,12 @@ import { formatNumber, getSortedData } from "../../utils";
 const headers = ["Graphed", "Change", "%", "YTD%", "Value"];
 const headerSortField = ["description", "change", "change_pct", "change_pct_ytd", "value"];
 
-function GraphedTable({followedData}) {
+function GraphedTable({ followedData }) {
   const [data, setData] = useState(followedData);
   const [sortField, setSortField] = useState({ fieldName: "", ascStatus: true });
 
   useEffect(() => {
-    setData(followedData)
+    setData(followedData);
   }, [followedData]);
 
   const sortedData = useMemo(() => {
@@ -30,7 +30,6 @@ function GraphedTable({followedData}) {
     }
   };
 
-
   return (
     <TableContainer
       sx={{
@@ -41,7 +40,11 @@ function GraphedTable({followedData}) {
         <TableHead>
           <StyledTableRow header={"true"}>
             {headers.map((header, index) => (
-              <StyledTableHeaderCell key={index} align={index > 0 ? "right" : "left"} onClick={onHeaderClick(headerSortField[index])}>
+              <StyledTableHeaderCell
+                key={index}
+                align={index > 0 ? "right" : "left"}
+                onClick={onHeaderClick(headerSortField[index])}
+              >
                 {header}
               </StyledTableHeaderCell>
             ))}

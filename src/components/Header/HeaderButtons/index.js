@@ -2,20 +2,16 @@ import React from "react";
 import { Box } from "@mui/material";
 import { StyledHeaderButton } from "./StyledComponents";
 import { customizedTheme } from "../../CustomizedTheme";
-
-function HeaderButtons({ handleClickButton }) {
+import { Link } from "react-router-dom";
+function HeaderButtons({selectedManagerId}) {
   const buttonLabels = ["Summaries", "Positions", "Trades", "Orders"];
-  const navigateUrls = ["", "positions", "trades", "orders"];
-
-  const handleClick = (value) => {
-    handleClickButton(value);
-  };
+  const navigateUrls = ["", `positions/${selectedManagerId}`, "trades", "orders"];
 
   return (
     <Box
       sx={{
         height: "40px",
-        backgroundColor: "#314c61",
+        backgroundColor: "#314C61",
         display: "flex",
         alignItems: "center",
         [customizedTheme.breakpoints.down("md")]: {
@@ -24,10 +20,11 @@ function HeaderButtons({ handleClickButton }) {
         },
       }}
     >
+      {/* onClick={() => handleClick(navigateUrls[index])} */}
       {buttonLabels.map((item, index) => (
-        <StyledHeaderButton key={index} onClick={() => handleClick(navigateUrls[index])}>
-          {item}
-        </StyledHeaderButton>
+        <Link to={`/${navigateUrls[index]}`} key={index}>
+          <StyledHeaderButton>{item}</StyledHeaderButton>
+        </Link>
       ))}
     </Box>
   );

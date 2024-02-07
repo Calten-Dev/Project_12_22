@@ -1,14 +1,13 @@
 import React from "react";
 import { Table, TableBody, TableHead, TableRow } from "@mui/material";
-import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
+import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell, StyledTableContainer } from "../StyledComponents";
 import { FcKey } from "react-icons/fc";
-import { StyledTableContainer } from "./StyledComponents";
 
 const tableHeaderLabels = ["From", <FcKey />, "Subject", "Received"];
 
 function PortfolioNotesTable({ notesData }) {
   return (
-    <StyledTableContainer>
+    <StyledTableContainer color="#B4B4B4">
       <Table stickyHeader>
         <TableHead>
           <TableRow>

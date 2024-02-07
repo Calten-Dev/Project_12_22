@@ -1,13 +1,12 @@
 import React from "react";
 import { Table, TableBody, TableHead, TableRow } from "@mui/material";
-import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell } from "../StyledComponents";
-import { StyledTableContainer } from "./StyledComponents";
+import { StyledTableHeaderCell, StyledTableRow, StyledTableBodyCell, StyledTableContainer } from "../StyledComponents";
 
 const tableHeaderLabels = ["Date", "Quantity", "Order", "Price", "Manager"];
 
 function PortfolioTradesTable({ tradesData }) {
   return (
-    <StyledTableContainer>
+    <StyledTableContainer color="#B4B4B4">
       <Table stickyHeader>
         <TableHead>
           <TableRow>
@@ -24,7 +23,7 @@ function PortfolioTradesTable({ tradesData }) {
             tradesData.map((item, index) => (
               <StyledTableRow key={index} index={index}>
                 {item.map((element, itemIndex) => (
-                  <StyledTableBodyCell type={"normal"} align={itemIndex > 0 ? "right" : "left"}>
+                  <StyledTableBodyCell key={itemIndex} type={"normal"} align={itemIndex > 0 ? "right" : "left"}>
                     {element}
                   </StyledTableBodyCell>
                 ))}
