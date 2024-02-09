@@ -54,35 +54,39 @@ function PositionDetailHistoryTable({ managerData, mmData }) {
               </StyledTableHeaderCell>
             ))}
           </StyledTableHead>
-          {!!data && data.length > 0
-            ? data.map((item, index) => (
-                <StyledTableRow key={index} index={index} hvcolor="#DDE5D4">
-                  <StyledTableBodyCell>{item[INDEX_FOR_POSITION]}</StyledTableBodyCell>
-                  <StyledTableBodyCell align={"right"}></StyledTableBodyCell>
-                  <StyledTableBodyCell
-                    align={"right"}
-                    type={"highlight"}
-                    value={item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE]}
-                  >
-                    {formatNumber(item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE])}
-                  </StyledTableBodyCell>
-                  <StyledTableBodyCell align={"right"}>{item[INDEX_FOR_ERD]}</StyledTableBodyCell>
-                  <StyledTableBodyCell align={"right"}>{item[INDEX_FOR_REGION]}</StyledTableBodyCell>
-                  <StyledTableBodyCell
-                    align={"right"}
-                    type={"highlight"}
-                    value={
-                      (item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE] * 100) / mmData.aggregates.portfolio_sod_value
-                    }
-                  >
-                    {formatNumber(
-                      (item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE] * 100) / mmData.aggregates.portfolio_sod_value
-                    )}{" "}
-                    %
-                  </StyledTableBodyCell>
-                </StyledTableRow>
-              ))
-            : null}
+          {!!data && data.length > 0 && mmData && Object.keys(mmData).length > 0 ? (
+            data.map((item, index) => (
+              <StyledTableRow key={index} index={index} hvcolor="#DDE5D4">
+                <StyledTableBodyCell>{item[INDEX_FOR_POSITION]}</StyledTableBodyCell>
+                <StyledTableBodyCell align={"right"}></StyledTableBodyCell>
+                <StyledTableBodyCell
+                  align={"right"}
+                  type={"highlight"}
+                  value={item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE]}
+                >
+                  {formatNumber(item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE])}
+                </StyledTableBodyCell>
+                <StyledTableBodyCell align={"right"}>{item[INDEX_FOR_ERD]}</StyledTableBodyCell>
+                <StyledTableBodyCell align={"right"}>{item[INDEX_FOR_REGION]}</StyledTableBodyCell>
+                <StyledTableBodyCell
+                  align={"right"}
+                  type={"highlight"}
+                  value={
+                    (item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE] * 100) / mmData.aggregates.portfolio_sod_value
+                  }
+                >
+                  {formatNumber(
+                    (item[INDEX_FOR_QUANTITY] * item[INDEX_FOR_PRICE] * 100) / mmData.aggregates.portfolio_sod_value
+                  )}{" "}
+                  %
+                </StyledTableBodyCell>
+              </StyledTableRow>
+            ))
+          ) : (
+            <StyledTableRow>
+              <StyledTableBodyCell colSpan={tableHeaderLabels.length}>Loading...</StyledTableBodyCell>
+            </StyledTableRow>
+          )}
         </Table>
       </StyledContainer>
     </>
